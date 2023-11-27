@@ -94,7 +94,7 @@ $folder->enter('etc');
 // get all the files and folder
 var_dump($folder->scan());
 
-// remove filer within folder
+// remove files within folder
 var_dump($folder->delete(['test.txt', 'test2.txt']));
 
 // remove current folder
@@ -203,7 +203,7 @@ $image = image_handler(__DIR__ . '/test.jpg');
 // compress this image
 $image->compress(60); // it will compress 60%
 
-// compress and save to another filer
+// compress and save to another files
 $image->compress(60, __DIR__ . '/test-com.jpg');
 
 // resize this image
