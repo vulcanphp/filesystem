@@ -21,7 +21,7 @@ class FileHandler implements IFileHandler
 
     public function setPath(string $filePath): void
     {
-        $this->filePath = str_replace(['//', '/'], DIRECTORY_SEPARATOR, $filePath);
+		$this->filePath = filter_var($filePath, FILTER_VALIDATE_URL) ? $filePath : str_replace(['//', '/'], DIRECTORY_SEPARATOR, $filePath);
     }
 
     public function getPath(): string
