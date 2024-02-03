@@ -106,7 +106,6 @@ class ImageHandler implements IImageHandler
             $destination = $this->getSource();
         }
 
-
         list($width, $height) = $this->getInfo();
 
         $image      = $this->getImage();
@@ -129,7 +128,18 @@ class ImageHandler implements IImageHandler
             unlink($destination);
         }
 
-        imagecopyresampled($photo, $image, 0 - ($new_width - $img_width) / 2, 0 - ($new_height - $img_height) / 2, 0, 0, $new_width, $new_height, $width, $height);
+        imagecopyresampled(
+            $photo,
+            $image,
+            intval(0 - ($new_width - $img_width) / 2),
+            intval(0 - ($new_height - $img_height) / 2),
+            0,
+            0,
+            intval($new_width),
+            intval($new_height),
+            intval($width),
+            intval($height)
+        );
 
         return imagejpeg($photo, $destination);
     }
